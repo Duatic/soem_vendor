@@ -79,7 +79,7 @@ target_include_directories(soem_vendor PUBLIC
   $<BUILD_INTERFACE:${soem_SOURCE_DIR}/osal/${OS}>
   $<BUILD_INTERFACE:${soem_SOURCE_DIR}/oshw/${OS}>
   # Only a single INSTALL_INTERFACE entry as all files are put into the same directory of the vendor package
-  $<INSTALL_INTERFACE:include/soem_vendor>
+  $<INSTALL_INTERFACE:include>
 )
 
 
@@ -89,7 +89,11 @@ target_link_libraries(soem_vendor
     ${OS_LIBS}
 )
 
-install(TARGETS soem_vendor DESTINATION lib)
+
+ament_export_targets(export_soem_vendor HAS_LIBRARY_TARGET)
+
+install(TARGETS soem_vendor DESTINATION lib
+        EXPORT export_soem_vendor)
 
 # Collect all the header files for installation
 file(GLOB SOEM_HEADERS ${soem_SOURCE_DIR}/soem/*.h)
@@ -99,8 +103,9 @@ file(GLOB OSHW_HEADERS ${soem_SOURCE_DIR}/oshw/${OS}/*.h)
 
 # The reason we put all of these headers into the main folder is because its done the same way in SOEM itself
 install(FILES ${SOEM_HEADERS} ${OSAL_HEADERS} ${OSHW_HEADERS}
-    DESTINATION include
+    DESTINATION include/soem_vendor
 )
 
+ament_export_include_directories(include)
 
 ament_package()

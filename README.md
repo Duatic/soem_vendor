@@ -9,3 +9,4 @@ The upstream library is imported via `FetchContent` from the SOEM repository and
 
 This package is licensed under BSD 3-Clause [license](./LICENSE).\
 Also take a look at the SOEM [license](https://github.com/OpenEtherCATsociety/SOEM/blob/master/LICENSE)
+
