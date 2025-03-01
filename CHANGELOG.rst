@@ -2,6 +2,12 @@
 Changelog for package soem_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.2.0 (2025-03-01)
+------------------
+* Setup CI
+* Implement a better handling of SOEM headers
+* Adapt README
+
 0.1.1 (2025-02-28)
 ------------------
 * Fix the include directory installation paths
