@@ -101,8 +101,39 @@ file(GLOB OSAL_HEADERS ${soem_SOURCE_DIR}/osal/osal.h ${soem_SOURCE_DIR}/osal/${
 file(GLOB OSHW_HEADERS ${soem_SOURCE_DIR}/oshw/${OS}/*.h)
 
 
+# This is kinda nasty and someone with better CMake/Regex skills could probably write this way better but
+# we need to adapt the includes in the exported headers so that another project depending on this vendor package will actually compile
+# The reason we need to to this is that SOEM does not have a "proejct" folder for its includes but always just writes
+# #include "some_header.h" on the other hand we want to use it as #include "soem_vendor/some_header.h".
+# So what we do is just adapt all include paths in the exported headers...
+set(FIXED_INCLUDES)
+foreach(FILE ${SOEM_HEADERS} ${OSAL_HEADERS} ${OSHW_HEADERS})
+    get_filename_component(FILE_NAME ${FILE} NAME)
+    file(READ ${FILE} CONTENT)
+    string(REPLACE "\"ethercattype.h\"" "\"soem_vendor/ethercattype.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "<ethercattype.h>" "\"soem_vendor/ethercattype.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"nicdrv.h\"" "\"soem_vendor/nicdrv.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercatbase.h\"" "\"soem_vendor/ethercatbase.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercatmain.h\"" "\"soem_vendor/ethercatmain.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercatdc.h\"" "\"soem_vendor/ethercatdc.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercatfoe.h\"" "\"soem_vendor/ethercatfoe.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercatcoe.h\"" "\"soem_vendor/ethercatcoe.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercatsoe.h\"" "\"soem_vendor/ethercatsoe.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercateoe.h\"" "\"soem_vendor/ethercateoe.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercatconfig.h\"" "\"soem_vendor/ethercatconfig.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercatprint.h\"" "\"soem_vendor/ethercatprint.h\""  CONTENT "${CONTENT}")
+
+    string(REPLACE "\"osal.h\"" "\"soem_vendor/osal.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"osal_defs.h\"" "\"soem_vendor/osal_defs.h\""  CONTENT "${CONTENT}")
+
+
+    file(WRITE "${CMAKE_BINARY_DIR}/fixed_includes/${FILE_NAME}" "${CONTENT}")
+    list(APPEND FIXED_INCLUDES "${CMAKE_BINARY_DIR}/fixed_includes/${FILE_NAME}")
+endforeach()
+
+
 # The reason we put all of these headers into the main folder is because its done the same way in SOEM itself
-install(FILES ${SOEM_HEADERS} ${OSAL_HEADERS} ${OSHW_HEADERS}
+install(FILES ${FIXED_INCLUDES}
     DESTINATION include/soem_vendor
 )
 

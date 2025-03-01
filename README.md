@@ -11,21 +11,9 @@ This package is licensed under BSD 3-Clause [license](./LICENSE).\
 SOEM itself is [licensed](https://github.com/OpenEtherCATsociety/SOEM/blob/master/LICENSE) under GPLv2 with an exception for static and dynamic linking.
 
 
-# Usage notes
+# Quirks
 
-The usage in general is rather straight forward but has a few quirks due to the way SOEM handles headers.
-
-1. Add the dependency to soem_vendor into your `package.xml` and `CMakeLists.txt` as usual
-2. For your cmake target that depends on SOEM add:
-
-```cmake
-# If necessary replace ${PROJECT_NAME} with your target name
-target_include_directories(${PROJECT_NAME} PRIVATE
-    ${soem_vendor_INCLUDE_DIRS}/soem_vendor)
-```
-
-You __want__ to keep this statement `PRIVATE` to your target as otherwise you will polute all targets that depend on your library with the global SOEM include directory. This can (and will) lead to issues in case a large project depends on different versions of SOEM.
-
+In the CMakeList we prefix the include statements for all SOEM headers in the export headers with `soem_vendor`. Otherwise compilation of downstream packages will fail.
 
 __Background:__ The reason this workaround is needed is that SOEM does not package its headers into a project specific subfolder as you'd expect it from most modern cmake and ROS packages. When you access SOEM from your project you would want to write statements such as:
 
