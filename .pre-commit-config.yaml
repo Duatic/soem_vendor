@@ -30,5 +30,3 @@ repos:
       - id: mixed-line-ending
       - id: trailing-whitespace
       - id: check-byte-order-marker  # Forbid UTF-8 byte-order markers
-
-
