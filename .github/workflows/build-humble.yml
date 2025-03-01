@@ -17,4 +17,5 @@ jobs:
     with:
       ros_distro: humble
       ros_repo: main
+      upstream_workspace: ''
       ref_for_scheduled_build: main
