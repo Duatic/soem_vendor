@@ -2,6 +2,10 @@
 Changelog for package soem_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.3.0 (2025-05-02)
+------------------
+* Some documentation fixes
+
 0.2.0 (2025-03-01)
 ------------------
 * Setup CI
