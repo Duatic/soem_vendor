@@ -32,5 +32,3 @@ On the contrary the headers themselves directly include each other:
 ```
 
 Without adding the `soem_vendor` include directory to your CMakeLists the compilation will fail because the headers are not found. With this workaround this step is not needed anymore and allows you to write a default ROS2 CMakeLists.txt.
-
-
