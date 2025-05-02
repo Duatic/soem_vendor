@@ -31,7 +31,6 @@ On the contrary the headers themselves directly include each other:
 #include <a_soem_header.h>
 ```
 
-Without adding the `soem_vendor` include directory to your CMakeLists the compilation will fail because the headers are not found.
+Without adding the `soem_vendor` include directory to your CMakeLists the compilation will fail because the headers are not found. With this workaround this step is not needed anymore and allows you to write a default ROS2 CMakeLists.txt.
 
 
-__Recommendation:__ If you write a library do NOT expose SOEM to the outside. In general we recommend the use of the [soem_cpp](https://github.com/duatic/soem_cpp) wrapper for C++ projects.
