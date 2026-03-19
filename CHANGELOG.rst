@@ -2,6 +2,10 @@
 Changelog for package soem_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.4.0 (2026-03-19)
+------------------
+* Build and install `slave_info` tool
+
 0.3.0 (2025-05-02)
 ------------------
 * Some documentation fixes
