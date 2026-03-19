@@ -71,6 +71,8 @@ add_library(soem_vendor SHARED
     ${OSHW_EXTRA_SOURCES}
 )
 
+
+
 set_target_properties(soem_vendor PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 target_include_directories(soem_vendor PUBLIC
@@ -88,6 +90,7 @@ target_include_directories(soem_vendor PUBLIC
 target_link_libraries(soem_vendor
     ${OS_LIBS}
 )
+
 
 
 ament_export_targets(export_soem_vendor HAS_LIBRARY_TARGET)
@@ -136,6 +139,20 @@ endforeach()
 install(FILES ${FIXED_INCLUDES}
     DESTINATION include/soem_vendor
 )
+
+# Build the slave info tool which can be very useful for debugging
+add_executable(slave_info ${soem_SOURCE_DIR}/test/linux/slaveinfo/slaveinfo.c)
+target_include_directories(slave_info PUBLIC
+  $<BUILD_INTERFACE:${soem_SOURCE_DIR}/soem>
+  $<BUILD_INTERFACE:${soem_SOURCE_DIR}/osal>
+  $<BUILD_INTERFACE:${soem_SOURCE_DIR}/osal/${OS}>
+  $<BUILD_INTERFACE:${soem_SOURCE_DIR}/oshw/${OS}>
+  # Only a single INSTALL_INTERFACE entry as all files are put into the same directory of the vendor package
+  $<INSTALL_INTERFACE:include>
+)
+target_link_libraries(slave_info soem_vendor)
+install(TARGETS slave_info
+   DESTINATION lib/${PROJECT_NAME})
 
 ament_export_include_directories(include)
 
