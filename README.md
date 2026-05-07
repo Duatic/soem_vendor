@@ -1,6 +1,7 @@
 # soem_vendor
 
 [![Rolling Build Main](https://github.com/Duatic/soem_vendor/actions/workflows/build-rolling.yml/badge.svg)](https://github.com/Duatic/soem_vendor/actions/workflows/build-rolling.yml)
+[![Kilted Build Main](https://github.com/Duatic/soem_vendor/actions/workflows/build-kilted.yml/badge.svg)](https://github.com/Duatic/soem_vendor/actions/workflows/build-kilted.yml)
 [![Jazzy Build Main](https://github.com/Duatic/soem_vendor/actions/workflows/build-jazzy.yml/badge.svg)](https://github.com/Duatic/soem_vendor/actions/workflows/build-jazzy.yml)
 [![Humble Build Main](https://github.com/Duatic/soem_vendor/actions/workflows/build-humble.yml/badge.svg)](https://github.com/Duatic/soem_vendor/actions/workflows/build-humble.yml)
 
