@@ -14,7 +14,7 @@ The upstream library is imported via `FetchContent` from the SOEM repository and
 
 This package is licensed under BSD 3-Clause [license](./LICENSE).\
 SOEM itself is [licensed](https://github.com/OpenEtherCATsociety/SOEM/blob/master/LICENSE) under GPLv2 with an exception for static and dynamic linking.
-
+__NOTE:__ This is only true until version `1.4.0` of SOEM. With version `2.0.0` SOEM is now licensed under GPLv3. Therefore this package uses version `1.4.0`
 
 # Quirks
 
