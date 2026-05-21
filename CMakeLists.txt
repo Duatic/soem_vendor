@@ -73,6 +73,7 @@ add_library(soem_vendor SHARED
 
 
 
+
 set_target_properties(soem_vendor PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 target_include_directories(soem_vendor PUBLIC
@@ -95,8 +96,18 @@ target_link_libraries(soem_vendor
 
 ament_export_targets(export_soem_vendor HAS_LIBRARY_TARGET)
 
-install(TARGETS soem_vendor DESTINATION lib
-        EXPORT export_soem_vendor)
+install(TARGETS soem_vendor
+        EXPORT export_soem_vendor
+        ARCHIVE DESTINATION lib
+        LIBRARY DESTINATION lib
+        RUNTIME DESTINATION bin
+)
+
+install(
+  EXPORT export_soem_vendor
+  NAMESPACE soem_vendor::
+  DESTINATION share/${PROJECT_NAME}/cmake
+)
 
 # Collect all the header files for installation
 file(GLOB SOEM_HEADERS ${soem_SOURCE_DIR}/soem/*.h)
@@ -153,7 +164,7 @@ target_include_directories(slave_info PUBLIC
 target_link_libraries(slave_info soem_vendor)
 install(TARGETS slave_info
    DESTINATION lib/${PROJECT_NAME})
-
 ament_export_include_directories(include)
+
 
 ament_package()
