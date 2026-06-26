@@ -70,7 +70,7 @@ add_library(soem_vendor SHARED
     ${OSHW_SOURCES}
     ${OSHW_EXTRA_SOURCES}
 )
-
+add_library(soem_vendor::soem_vendor ALIAS soem_vendor)
 
 
 
