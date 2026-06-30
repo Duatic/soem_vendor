@@ -1,10 +1,10 @@
 # soem_vendor
 
-[![Rolling Build Main](https://github.com/Duatic/soem_vendor/actions/workflows/build-rolling.yml/badge.svg)](https://github.com/Duatic/soem_vendor/actions/workflows/build-rolling.yml)
-[![Lyrical Build Main](https://github.com/Duatic/soem_vendor/actions/workflows/build-lyrical.yml/badge.svg)](https://github.com/Duatic/soem_vendor/actions/workflows/build-lyrical.yml)
-[![Kilted Build Main](https://github.com/Duatic/soem_vendor/actions/workflows/build-kilted.yml/badge.svg)](https://github.com/Duatic/soem_vendor/actions/workflows/build-kilted.yml)
-[![Jazzy Build Main](https://github.com/Duatic/soem_vendor/actions/workflows/build-jazzy.yml/badge.svg)](https://github.com/Duatic/soem_vendor/actions/workflows/build-jazzy.yml)
-[![Humble Build Main](https://github.com/Duatic/soem_vendor/actions/workflows/build-humble.yml/badge.svg)](https://github.com/Duatic/soem_vendor/actions/workflows/build-humble.yml)
+[![Humble](https://github.com/Duatic/soem_vendor/actions/workflows/build-humble.yml/badge.svg)](https://github.com/Duatic/soem_vendor/actions/workflows/build-humble.yml)
+[![Jazzy](https://github.com/Duatic/soem_vendor/actions/workflows/build-jazzy.yml/badge.svg)](https://github.com/Duatic/soem_vendor/actions/workflows/build-jazzy.yml)
+[![Kilted](https://github.com/Duatic/soem_vendor/actions/workflows/build-kilted.yml/badge.svg)](https://github.com/Duatic/soem_vendor/actions/workflows/build-kilted.yml)
+[![Lyrical](https://github.com/Duatic/soem_vendor/actions/workflows/build-lyrical.yml/badge.svg)](https://github.com/Duatic/soem_vendor/actions/workflows/build-lyrical.yml)
+[![Rolling](https://github.com/Duatic/soem_vendor/actions/workflows/build-rolling.yml/badge.svg)](https://github.com/Duatic/soem_vendor/actions/workflows/build-rolling.yml)
 
 ROS2 packaging for the Simple Open EtherCAT Master Library [(SOEM)](https://github.com/OpenEtherCATsociety/SOEM)
 
