@@ -117,7 +117,7 @@ file(GLOB OSHW_HEADERS ${soem_SOURCE_DIR}/oshw/${OS}/*.h)
 
 # This is kinda nasty and someone with better CMake/Regex skills could probably write this way better but
 # we need to adapt the includes in the exported headers so that another project depending on this vendor package will actually compile
-# The reason we need to to this is that SOEM does not have a "proejct" folder for its includes but always just writes
+# The reason we need to do this is that SOEM does not have a "project" folder for its includes but always just writes
 # #include "some_header.h" on the other hand we want to use it as #include "soem_vendor/some_header.h".
 # So what we do is just adapt all include paths in the exported headers...
 set(FIXED_INCLUDES)
