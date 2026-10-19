@@ -2,6 +2,13 @@
 Changelog for package soem_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.4.1 (2026-10-19)
+------------------
+* Vendor SOEM v1.4.0 in third_party/SOEM instead of fetching it at build time, so building needs no network
+* Route the package to the public apt archive
+* Use SPDX license names
+* Install the license texts, SOEM's included
+
 0.4.0 (2026-03-19)
 ------------------
 * Build and install `slave_info` tool
