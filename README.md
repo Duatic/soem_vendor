@@ -9,12 +9,19 @@
 ROS2 packaging for the Simple Open EtherCAT Master Library [(SOEM)](https://github.com/OpenEtherCATsociety/SOEM)
 
 
-The upstream library is imported via `FetchContent` from the SOEM repository and packaged in a ROS compatible way.
+The upstream library is vendored in `third_party/SOEM` and packaged in a ROS compatible way, so building needs no network.
+
+`third_party/SOEM` is SOEM [v1.4.0](https://github.com/OpenEtherCATsociety/SOEM/tree/v1.4.0) (commit `abbf0d42e38d6cfbaa4c1e9e8e07ace651c386fd`), unmodified except that the prebuilt Windows libraries in `oshw/win32/wpcap/Lib` are left out. To check it against upstream:
+
+```
+git clone --depth 1 --branch v1.4.0 https://github.com/OpenEtherCATsociety/SOEM.git /tmp/soem
+diff -r --exclude .git --exclude Lib /tmp/soem third_party/SOEM
+```
 
 # Licensing
 
 This package is licensed under BSD 3-Clause [license](./LICENSE).\
-SOEM itself is [licensed](https://github.com/OpenEtherCATsociety/SOEM/blob/master/LICENSE) under GPLv2 with an exception for static and dynamic linking.
+SOEM itself is [licensed](./third_party/SOEM/LICENSE) under GPLv2 with an exception for static and dynamic linking.
 __NOTE:__ This is only true until version `1.4.0` of SOEM. With version `2.0.0` SOEM is now licensed under GPLv3. Therefore this package uses version `1.4.0`
 
 # Quirks

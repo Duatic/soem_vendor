@@ -4,19 +4,8 @@ project(soem_vendor C)
 find_package(ament_cmake REQUIRED)
 
 
-# Fetch the specified version of SOEM
-include(FetchContent)
-FetchContent_Declare(
-    soem
-    GIT_REPOSITORY https://github.com/OpenEtherCATsociety/SOEM
-    GIT_TAG        v1.4.0
-)
-
-FetchContent_GetProperties(soem)
-# Make sure that we only download it once
-if(NOT soem_POPULATED)
-    FetchContent_Populate(soem)
-endif()
+# SOEM v1.4.0, vendored in third_party/SOEM so the build needs no network, see README.md
+set(soem_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/SOEM)
 
 
 # Do the handling for different architectures
