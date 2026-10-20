@@ -5,8 +5,9 @@
   <version>0.4.0</version>
   <description>Vendor package for SOEM (Open Ethercat Master)</description>
 
-  <license>BSD 3-Clause</license>
-  <license>GPLv2 adapted for linkage</license> <!--SOEM itself is under the GPLv2 license but has an exception for using SOEM as a library-->
+  <license>BSD-3-Clause</license>
+  <!-- SOEM, fetched at build time, see its LICENSE -->
+  <license>GPL-2.0-only WITH eCos-exception-2.0</license>
 
   <author email="lnachtigall@duatic.com">Lennart Nachtigall</author>
   <maintainer email="lnachtigall@duatic.com">Lennart Nachtigall</maintainer>

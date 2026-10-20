@@ -166,6 +166,10 @@ target_include_directories(slave_info PUBLIC
 target_link_libraries(slave_info soem_vendor)
 install(TARGETS slave_info
    DESTINATION lib/${PROJECT_NAME})
+
+# Binary packages carry the license texts, SOEM's included
+install(FILES LICENSE DESTINATION share/${PROJECT_NAME})
+install(FILES ${soem_SOURCE_DIR}/LICENSE DESTINATION share/${PROJECT_NAME} RENAME LICENSE.SOEM)
 ament_export_include_directories(include)
 
 
