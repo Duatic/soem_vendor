@@ -9,7 +9,7 @@ include(FetchContent)
 FetchContent_Declare(
     soem
     GIT_REPOSITORY https://github.com/OpenEtherCATsociety/SOEM
-    GIT_TAG        v1.4.0
+    GIT_TAG        abbf0d42e38d6cfbaa4c1e9e8e07ace651c386fd  # v1.4.0
 )
 
 FetchContent_GetProperties(soem)

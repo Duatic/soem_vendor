@@ -9,7 +9,7 @@
 ROS2 packaging for the Simple Open EtherCAT Master Library [(SOEM)](https://github.com/OpenEtherCATsociety/SOEM)
 
 
-The upstream library is imported via `FetchContent` from the SOEM repository and packaged in a ROS compatible way.
+The upstream library is fetched with `FetchContent` from the SOEM repository at the `v1.4.0` commit (`abbf0d4`) and packaged in a ROS compatible way.
 
 # Licensing
 
