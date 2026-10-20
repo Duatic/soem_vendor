@@ -2,6 +2,13 @@
 Changelog for package soem_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Upcoming changes
+----------------
+* Pin SOEM to the v1.4.0 commit, and fetch it in Debian package builds too
+* Route the package to the public apt archive
+* Use SPDX license names, declaring SOEM's linking exception
+* Install the license texts with the package
+
 0.4.0 (2026-03-19)
 ------------------
 * Build and install `slave_info` tool
