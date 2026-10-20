@@ -6,6 +6,8 @@ find_package(ament_cmake REQUIRED)
 
 # Fetch the specified version of SOEM
 include(FetchContent)
+# Debian package builds disconnect FetchContent; SOEM is fetched at its pinned commit regardless
+set(FETCHCONTENT_FULLY_DISCONNECTED OFF)
 FetchContent_Declare(
     soem
     GIT_REPOSITORY https://github.com/OpenEtherCATsociety/SOEM
