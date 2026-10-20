@@ -17,6 +17,7 @@
   <export>
     <build_type>ament_cmake</build_type>
     <duatic_archive_root>public</duatic_archive_root>
+    <duatic_publish_source>true</duatic_publish_source>
   </export>
 
 </package>
