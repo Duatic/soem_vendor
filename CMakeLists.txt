@@ -6,10 +6,12 @@ find_package(ament_cmake REQUIRED)
 
 # Fetch the specified version of SOEM
 include(FetchContent)
+# Debian package builds disconnect FetchContent; SOEM is fetched at its pinned commit regardless
+set(FETCHCONTENT_FULLY_DISCONNECTED OFF)
 FetchContent_Declare(
     soem
     GIT_REPOSITORY https://github.com/OpenEtherCATsociety/SOEM
-    GIT_TAG        v1.4.0
+    GIT_TAG        abbf0d42e38d6cfbaa4c1e9e8e07ace651c386fd  # v1.4.0
 )
 
 FetchContent_GetProperties(soem)
@@ -164,6 +166,10 @@ target_include_directories(slave_info PUBLIC
 target_link_libraries(slave_info soem_vendor)
 install(TARGETS slave_info
    DESTINATION lib/${PROJECT_NAME})
+
+# Binary packages carry the license texts, SOEM's included
+install(FILES LICENSE DESTINATION share/${PROJECT_NAME})
+install(FILES ${soem_SOURCE_DIR}/LICENSE DESTINATION share/${PROJECT_NAME} RENAME LICENSE.SOEM)
 ament_export_include_directories(include)
 
 

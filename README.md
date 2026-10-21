@@ -9,12 +9,12 @@
 ROS2 packaging for the Simple Open EtherCAT Master Library [(SOEM)](https://github.com/OpenEtherCATsociety/SOEM)
 
 
-The upstream library is imported via `FetchContent` from the SOEM repository and packaged in a ROS compatible way.
+The upstream library is fetched with `FetchContent` from the SOEM repository at the `v1.4.0` commit (`abbf0d4`) and packaged in a ROS compatible way.
 
 # Licensing
 
 This package is licensed under BSD 3-Clause [license](./LICENSE).\
-SOEM itself is [licensed](https://github.com/OpenEtherCATsociety/SOEM/blob/master/LICENSE) under GPLv2 with an exception for static and dynamic linking.
+SOEM itself is [licensed](https://github.com/OpenEtherCATsociety/SOEM/blob/v1.4.0/LICENSE) under GPLv2 with an exception for static and dynamic linking.
 __NOTE:__ This is only true until version `1.4.0` of SOEM. With version `2.0.0` SOEM is now licensed under GPLv3. Therefore this package uses version `1.4.0`
 
 # Quirks
