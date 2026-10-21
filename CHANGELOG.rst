@@ -8,6 +8,7 @@ Upcoming changes
 * Route the package to the public apt archive
 * Use SPDX license names, declaring SOEM's linking exception
 * Install the license texts with the package
+* Publish the package's source beside it in the apt archive
 
 0.4.0 (2026-03-19)
 ------------------
