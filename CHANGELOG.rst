@@ -2,13 +2,15 @@
 Changelog for package soem_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Upcoming changes
-----------------
+0.4.1 (2026-10-22)
+------------------
 * Pin SOEM to the v1.4.0 commit, and fetch it in Debian package builds too
 * Route the package to the public apt archive
 * Use SPDX license names, declaring SOEM's linking exception
 * Install the license texts with the package
 * Publish the package's source beside it in the apt archive
+* Add the soem_vendor::soem_vendor alias target
+* Export the soem_vendor::soem_vendor target, so downstream packages can link it without ament_target_dependencies
 
 0.4.0 (2026-03-19)
 ------------------
