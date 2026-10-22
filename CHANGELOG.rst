@@ -2,13 +2,26 @@
 Changelog for package soem_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Upcoming changes
-----------------
+0.4.1 (2026-10-22)
+------------------
 * Pin SOEM to the v1.4.0 commit, and fetch it in Debian package builds too
 * Route the package to the public apt archive
 * Use SPDX license names, declaring SOEM's linking exception
 * Install the license texts with the package
 * Publish the package's source beside it in the apt archive
+* feat(ci): update CI workflows (#9)
+* Bump actions/setup-python from 6 to 7 (#12)
+* Bump actions/cache from 5 to 6 (#10)
+* CI & README standardization (#11)
+* try to get rolling build working
+* Bump actions/checkout from 6 to 7
+* fix worflow names
+* add alias target
+* added lyrical workflow
+* support new target depend style without ament_target_dependencies
+* extend license note
+* added kilted badge to readme
+* added workflow for kilted
 
 0.4.0 (2026-03-19)
 ------------------
