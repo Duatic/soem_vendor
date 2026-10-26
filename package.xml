@@ -3,7 +3,7 @@
 <package format="3">
   <name>soem_vendor</name>
   <version>0.4.1</version>
-  <description>Vendor package for SOEM (Open Ethercat Master)</description>
+  <description>Vendor package for SOEM, the Simple Open EtherCAT® Master. Using or distributing it in a product requires an EtherCAT Master License from Beckhoff Automation, see ETHERCAT_NOTICE.</description>
 
   <license>BSD-3-Clause</license>
   <!-- SOEM, fetched at build time, see its LICENSE -->

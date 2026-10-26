@@ -2,6 +2,10 @@
 Changelog for package soem_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Upcoming changes
+----------------
+* Add the EtherCAT trademark and master licence notice, in the README and installed as ETHERCAT_NOTICE
+
 0.4.1 (2026-10-22)
 ------------------
 * Pin SOEM to the v1.4.0 commit, and fetch it in Debian package builds too
