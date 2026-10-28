@@ -17,6 +17,16 @@ This package is licensed under BSD 3-Clause [license](./LICENSE).\
 SOEM itself is [licensed](https://github.com/OpenEtherCATsociety/SOEM/blob/v1.4.0/LICENSE) under GPLv2 with an exception for static and dynamic linking.
 __NOTE:__ This is only true until version `1.4.0` of SOEM. With version `2.0.0` SOEM is now licensed under GPLv3. Therefore this package uses version `1.4.0`
 
+# EtherCAT
+
+EtherCAT® is a registered trademark and patented technology, licensed by Beckhoff Automation GmbH, Germany.
+
+The EtherCAT Technology, and the trade name “EtherCAT” are the intellectual property of, and protected by Beckhoff Automation GmbH. You may review, edit, compile, link, debug the EtherCAT Master Code, provided that before implementing into a product, using, selling or otherwise distributing an EtherCAT Master License is obtained from Beckhoff Automation GmbH & Co.KG.
+
+To receive a copy of the EtherCAT Master License contact Beckhoff Automation GmbH & Co.KG, Huelshorstweg 20, D-33415 Verl, Germany (www.beckhoff.com).
+
+The package installs this notice as `share/soem_vendor/ETHERCAT_NOTICE`.
+
 # Quirks
 
 In the CMakeList we prefix the include statements for all SOEM headers in the export headers with `soem_vendor`. Otherwise compilation of downstream packages will fail.
