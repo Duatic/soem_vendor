@@ -2,6 +2,10 @@
 Changelog for package soem_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.4.2 (2026-11-04)
+------------------
+* fix: spell EtherCAT correctly in the package description (#26)
+
 0.4.1 (2026-10-22)
 ------------------
 * Pin SOEM to the v1.4.0 commit, and fetch it in Debian package builds too
