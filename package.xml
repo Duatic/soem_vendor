@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>soem_vendor</name>
+  <name>duatic_soem_vendor</name>
   <version>0.4.2</version>
-  <description>Vendor package for SOEM (Simple Open EtherCAT Master)</description>
+  <description>SOEM (Simple Open EtherCAT Master) as a plain C library, without ROS</description>
 
   <license>BSD-3-Clause</license>
   <!-- SOEM, fetched at build time, see its LICENSE -->
@@ -12,10 +12,11 @@
   <author email="lnachtigall@duatic.com">Lennart Nachtigall</author>
   <maintainer email="lnachtigall@duatic.com">Lennart Nachtigall</maintainer>
 
-  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>cmake</buildtool_depend>
   <build_depend>git</build_depend>
   <export>
-    <build_type>ament_cmake</build_type>
+    <build_type>cmake</build_type>
+    <duatic_package_kind>system</duatic_package_kind>
     <duatic_archive_root>public</duatic_archive_root>
     <duatic_publish_source>true</duatic_publish_source>
   </export>
