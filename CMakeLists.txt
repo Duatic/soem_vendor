@@ -164,7 +164,9 @@ target_include_directories(slave_info PUBLIC
   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 target_link_libraries(slave_info duatic_soem_vendor)
+# Exported too, as duatic_soem_vendor::slave_info, so a consumer can locate it
 install(TARGETS slave_info
+   EXPORT duatic_soem_vendorTargets
    DESTINATION ${CMAKE_INSTALL_LIBDIR}/${PROJECT_NAME})
 
 # Binary packages carry the license texts, SOEM's included
