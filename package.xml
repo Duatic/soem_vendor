@@ -3,7 +3,7 @@
 <package format="3">
   <name>duatic_soem_vendor</name>
   <version>0.4.2</version>
-  <description>SOEM (Simple Open EtherCAT Master) as a plain C library, without ROS</description>
+  <description>SOEM (Simple Open EtherCAT Master) as a plain C library</description>
 
   <license>BSD-3-Clause</license>
   <!-- SOEM, fetched at build time, see its LICENSE -->
