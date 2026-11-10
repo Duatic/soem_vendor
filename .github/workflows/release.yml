@@ -7,7 +7,7 @@ on:
         description: 'Package to release, by its package.xml name'
         type: choice
         options:
-          - duatic_soem_vendor
+          - soem_vendor
       bump:
         description: 'Override the bump derived from the commits'
         type: choice

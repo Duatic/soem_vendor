@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(duatic_soem_vendor C)
+project(soem_vendor C)
 
 include(GNUInstallDirs)
 
@@ -66,19 +66,19 @@ file(GLOB OSAL_SOURCES ${soem_SOURCE_DIR}/osal/${OS}/*.c)
 file(GLOB OSHW_SOURCES ${soem_SOURCE_DIR}/oshw/${OS}/*.c)
 
 
-add_library(duatic_soem_vendor SHARED
+add_library(soem_vendor SHARED
     ${SOEM_SOURCES}
     ${OSAL_SOURCES}
     ${OSHW_SOURCES}
     ${OSHW_EXTRA_SOURCES}
 )
-add_library(duatic_soem_vendor::duatic_soem_vendor ALIAS duatic_soem_vendor)
+add_library(soem_vendor::soem_vendor ALIAS soem_vendor)
 
 
 
-set_target_properties(duatic_soem_vendor PROPERTIES POSITION_INDEPENDENT_CODE ON)
+set_target_properties(soem_vendor PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
-target_include_directories(duatic_soem_vendor PUBLIC
+target_include_directories(soem_vendor PUBLIC
   $<BUILD_INTERFACE:${soem_SOURCE_DIR}/soem>
   $<BUILD_INTERFACE:${soem_SOURCE_DIR}/osal>
   $<BUILD_INTERFACE:${soem_SOURCE_DIR}/osal/${OS}>
@@ -90,24 +90,24 @@ target_include_directories(duatic_soem_vendor PUBLIC
 
 
 
-target_link_libraries(duatic_soem_vendor
+target_link_libraries(soem_vendor
     ${OS_LIBS}
 )
 
 
 
-install(TARGETS duatic_soem_vendor
-        EXPORT duatic_soem_vendorTargets
+install(TARGETS soem_vendor
+        EXPORT soem_vendorTargets
         ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-# find_package(duatic_soem_vendor) provides duatic_soem_vendor::duatic_soem_vendor
+# find_package(soem_vendor) provides soem_vendor::soem_vendor
 install(
-  EXPORT duatic_soem_vendorTargets
-  FILE duatic_soem_vendorConfig.cmake
-  NAMESPACE duatic_soem_vendor::
+  EXPORT soem_vendorTargets
+  FILE soem_vendorConfig.cmake
+  NAMESPACE soem_vendor::
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
 )
 
@@ -120,27 +120,27 @@ file(GLOB OSHW_HEADERS ${soem_SOURCE_DIR}/oshw/${OS}/*.h)
 # This is kinda nasty and someone with better CMake/Regex skills could probably write this way better but
 # we need to adapt the includes in the exported headers so that another project depending on this vendor package will actually compile
 # The reason we need to do this is that SOEM does not have a "project" folder for its includes but always just writes
-# #include "some_header.h" on the other hand we want to use it as #include "duatic_soem_vendor/some_header.h".
+# #include "some_header.h" on the other hand we want to use it as #include "soem_vendor/some_header.h".
 # So what we do is just adapt all include paths in the exported headers...
 set(FIXED_INCLUDES)
 foreach(FILE ${SOEM_HEADERS} ${OSAL_HEADERS} ${OSHW_HEADERS})
     get_filename_component(FILE_NAME ${FILE} NAME)
     file(READ ${FILE} CONTENT)
-    string(REPLACE "\"ethercattype.h\"" "\"duatic_soem_vendor/ethercattype.h\""  CONTENT "${CONTENT}")
-    string(REPLACE "<ethercattype.h>" "\"duatic_soem_vendor/ethercattype.h\""  CONTENT "${CONTENT}")
-    string(REPLACE "\"nicdrv.h\"" "\"duatic_soem_vendor/nicdrv.h\""  CONTENT "${CONTENT}")
-    string(REPLACE "\"ethercatbase.h\"" "\"duatic_soem_vendor/ethercatbase.h\""  CONTENT "${CONTENT}")
-    string(REPLACE "\"ethercatmain.h\"" "\"duatic_soem_vendor/ethercatmain.h\""  CONTENT "${CONTENT}")
-    string(REPLACE "\"ethercatdc.h\"" "\"duatic_soem_vendor/ethercatdc.h\""  CONTENT "${CONTENT}")
-    string(REPLACE "\"ethercatfoe.h\"" "\"duatic_soem_vendor/ethercatfoe.h\""  CONTENT "${CONTENT}")
-    string(REPLACE "\"ethercatcoe.h\"" "\"duatic_soem_vendor/ethercatcoe.h\""  CONTENT "${CONTENT}")
-    string(REPLACE "\"ethercatsoe.h\"" "\"duatic_soem_vendor/ethercatsoe.h\""  CONTENT "${CONTENT}")
-    string(REPLACE "\"ethercateoe.h\"" "\"duatic_soem_vendor/ethercateoe.h\""  CONTENT "${CONTENT}")
-    string(REPLACE "\"ethercatconfig.h\"" "\"duatic_soem_vendor/ethercatconfig.h\""  CONTENT "${CONTENT}")
-    string(REPLACE "\"ethercatprint.h\"" "\"duatic_soem_vendor/ethercatprint.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercattype.h\"" "\"soem_vendor/ethercattype.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "<ethercattype.h>" "\"soem_vendor/ethercattype.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"nicdrv.h\"" "\"soem_vendor/nicdrv.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercatbase.h\"" "\"soem_vendor/ethercatbase.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercatmain.h\"" "\"soem_vendor/ethercatmain.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercatdc.h\"" "\"soem_vendor/ethercatdc.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercatfoe.h\"" "\"soem_vendor/ethercatfoe.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercatcoe.h\"" "\"soem_vendor/ethercatcoe.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercatsoe.h\"" "\"soem_vendor/ethercatsoe.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercateoe.h\"" "\"soem_vendor/ethercateoe.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercatconfig.h\"" "\"soem_vendor/ethercatconfig.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"ethercatprint.h\"" "\"soem_vendor/ethercatprint.h\""  CONTENT "${CONTENT}")
 
-    string(REPLACE "\"osal.h\"" "\"duatic_soem_vendor/osal.h\""  CONTENT "${CONTENT}")
-    string(REPLACE "\"osal_defs.h\"" "\"duatic_soem_vendor/osal_defs.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"osal.h\"" "\"soem_vendor/osal.h\""  CONTENT "${CONTENT}")
+    string(REPLACE "\"osal_defs.h\"" "\"soem_vendor/osal_defs.h\""  CONTENT "${CONTENT}")
 
 
     file(WRITE "${CMAKE_BINARY_DIR}/fixed_includes/${FILE_NAME}" "${CONTENT}")
@@ -163,10 +163,10 @@ target_include_directories(slave_info PUBLIC
   # Only a single INSTALL_INTERFACE entry as all files are put into the same directory of the vendor package
   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
-target_link_libraries(slave_info duatic_soem_vendor)
-# Exported too, as duatic_soem_vendor::slave_info, so a consumer can locate it
+target_link_libraries(slave_info soem_vendor)
+# Exported too, as soem_vendor::slave_info, so a consumer can locate it
 install(TARGETS slave_info
-   EXPORT duatic_soem_vendorTargets
+   EXPORT soem_vendorTargets
    DESTINATION ${CMAKE_INSTALL_LIBDIR}/${PROJECT_NAME})
 
 # Binary packages carry the license texts, SOEM's included
